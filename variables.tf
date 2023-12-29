@@ -34,6 +34,11 @@ variable "organization" {
   description = "TFC organization"
 }
 
+variable "tfc_project_id" {
+  type        = string
+  description = "ID of the TFC project to house the workspace(s)"
+}
+
 variable "project_name" {
   type        = string
   description = "Name of the project to create a landing zone for"

@@ -24,3 +24,15 @@ resource "github_repository" "iac" {
   }
 }
 
+resource "tfe_workspace" "prod" {
+  name         = local.repo_name
+  organization = var.organization
+  project_id   = var.tfc_project_id
+  tag_names    = ["prod", "iac", "lz", var.project_name]
+  vcs_repo {
+    branch         = "main"
+    identifier     = github_repository.iac.full_name
+    oauth_token_id = var.oauth_token_id
+  }
+
+}

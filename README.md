@@ -28,6 +28,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [github_repository.iac](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/repository) | resource |
+| [tfe_workspace.prod](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace) | resource |
 
 ### Inputs
 
@@ -40,6 +41,7 @@ No modules.
 | organization | TFC organization | `string` | n/a | yes |
 | project\_name | Name of the project to create a landing zone for | `string` | n/a | yes |
 | project\_prefix | Prefix for the TFE project name within the LZ management module | `string` | `"project"` | no |
+| tfc\_project\_id | ID of the TFC project to house the workspace(s) | `string` | n/a | yes |
 
 ### Outputs
 
