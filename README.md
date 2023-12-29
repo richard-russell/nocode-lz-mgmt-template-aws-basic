@@ -27,7 +27,9 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [github_branch.extra_envs](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/branch) | resource |
 | [github_repository.iac](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/repository) | resource |
+| [tfe_workspace.extra_envs](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace) | resource |
 | [tfe_workspace.prod](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace) | resource |
 
 ### Inputs
@@ -35,6 +37,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | default\_tags | a set of tags to watermark the resources you deployed with Terraform. | `map(string)` | <pre>{<br>  "owner": "richard",<br>  "terraformed": "Do not edit manually."<br>}</pre> | no |
+| extra\_envs | Extra environments to create branches and workspaces for (prod is implicit) | `list(string)` | `null` | no |
 | github\_owner | Owner of the Github org | `string` | n/a | yes |
 | iac\_repo\_template | Template to use for OAC repo creation | `string` | n/a | yes |
 | oauth\_token\_id | Oauth token ID used for associating workspace to VCS | `string` | n/a | yes |

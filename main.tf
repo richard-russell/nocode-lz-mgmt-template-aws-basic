@@ -36,3 +36,22 @@ resource "tfe_workspace" "prod" {
   }
 
 }
+
+resource "github_branch" "extra_envs" {
+  for_each   = toset(var.extra_envs)
+  repository = github_repository.iac.name
+  branch     = each.key
+}
+
+resource "tfe_workspace" "extra_envs" {
+  for_each     = toset(github_branch.extra_envs.*.branch)
+  name         = "${local.project_fullname}-${each.key}"
+  organization = var.organization
+  project_id   = var.tfc_project_id
+  tag_names    = [each.key, "iac", "lz", var.project_name]
+  vcs_repo {
+    branch         = each.key
+    identifier     = github_repository.iac.full_name
+    oauth_token_id = var.oauth_token_id
+  }
+}

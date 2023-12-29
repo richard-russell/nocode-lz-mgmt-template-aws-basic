@@ -14,6 +14,12 @@ variable "default_tags" {
   }
 }
 
+variable "extra_envs" {
+  type        = list(string)
+  description = "Extra environments to create branches and workspaces for (prod is implicit)"
+  default     = null
+}
+
 variable "github_owner" {
   type        = string
   description = "Owner of the Github org"
