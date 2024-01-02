@@ -14,12 +14,6 @@ variable "default_tags" {
   }
 }
 
-variable "extra_envs" {
-  type        = list(string)
-  description = "Extra environments to create branches and workspaces for (prod is implicit)"
-  default     = null
-}
-
 variable "github_owner" {
   type        = string
   description = "Owner of the Github org"
@@ -35,14 +29,14 @@ variable "oauth_token_id" {
   description = "Oauth token ID used for associating workspace to VCS"
 }
 
-variable "organization" {
+variable "tfc_organization" {
   type        = string
   description = "TFC organization"
 }
 
-variable "tfc_project_id" {
+variable "tfc_project" {
   type        = string
-  description = "ID of the TFC project to house the workspace(s)"
+  description = "Name of the TFC project to house the workspace(s)"
 }
 
 variable "project_name" {
