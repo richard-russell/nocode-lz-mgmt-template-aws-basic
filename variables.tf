@@ -21,7 +21,7 @@ variable "github_owner" {
 
 variable "iac_repo_template" {
   type        = string
-  description = "Template to use for OAC repo creation"
+  description = "Template to use for IAC repo creation"
 }
 
 variable "oauth_token_id" {
